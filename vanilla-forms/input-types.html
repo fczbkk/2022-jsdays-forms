@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>input types</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<script>
+window.addEventListener('load', () => {
+  [...document.querySelectorAll('input')].forEach((element) => {
+    element.addEventListener('change', () => {
+      console.log(element.type, element.value)
+    })
+  })
+})
+</script>
+
+<h1>Input types</h1>
+
+<p>
+  text:<br />
+  <input type="text" />
+</p>
+<p>
+  number:<br />
+  <input type="number" />
+</p>
+<p>
+  url:<br />
+  <input type="url" />
+</p>
+<p>
+  email:<br />
+  <input type="email" />
+</p>
+<p>
+  tel:<br />
+  <input type="tel" />
+</p>
+<p>
+  search:<br />
+  <input type="search" />
+</p>
+<p>
+  date:<br />
+  <input type="date" />
+</p>
+<p>
+  month:<br />
+  <input type="month" />
+</p>
+<p>
+  week:<br />
+  <input type="week" />
+</p>
+<p>
+  time:<br />
+  <input type="time" />
+</p>
+<p>
+  color:<br />
+  <input type="color" />
+</p>
+<p>
+  range:<br />
+  <input type="range" />
+</p>
+
+</body>
+</html>

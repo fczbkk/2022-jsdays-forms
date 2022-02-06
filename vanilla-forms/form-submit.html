@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>form submit</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<script>
+window.addEventListener('load', () => {
+  const first = document.querySelector('#first')
+  const second = document.querySelector('#second')
+  const output = document.querySelector('#output')
+
+  document.querySelector('#joinButton').addEventListener('click', () => {
+    output.innerHTML = first.value + second.value
+  })
+})
+</script>
+
+<form>
+  <p>
+    first:<br />
+    <input type="text" id="first" />
+  </p>
+  <p>
+    second:<br />
+    <input type="text" id="second" />
+  </p>
+  <p id="output"></p>
+  <p>
+    <button type="button" id="joinButton">Join first and second</button>
+  </p>
+</form>
+
+</body>
+</html>

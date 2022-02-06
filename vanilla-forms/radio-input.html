@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>radio input</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<script>
+window.addEventListener('load', () => {
+  [...document.querySelectorAll('input[type="radio"]')].forEach((element) => {
+    element.addEventListener('change', () => {
+      console.log('change', element)
+    })
+  })
+})
+</script>
+
+<form>
+  <p>
+    <label>
+      <input type="radio" name="jsFlavour" value="vanilla" />
+      Vanilla
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="radio" name="jsFlavour" value="react" />
+      React
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="radio" name="jsFlavour" value="vue" />
+      Vue
+    </label>
+  </p>
+  <p id="output">
+    <input type="submit" />
+  </p>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>onInput versus onChange</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<script>
+window.addEventListener('load', () => {
+  document.querySelector('#onInputField').addEventListener('input', (event) => {
+    console.log('onInput', event.target.value)
+  })
+  document.querySelector('#onChangeField').addEventListener('change', (event) => {
+    console.log('onChange', event.target.value)
+  })
+})
+</script>
+
+<p>
+  onInput:<br />
+  <input id="onInputField" />
+</p>
+<p>
+  onChange:<br />
+  <input id="onChangeField" />
+</p>
+
+</body>
+</html>

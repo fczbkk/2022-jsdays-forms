@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>salary calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<script>
+window.addEventListener('load', () => {
+  const monthlySalary = document.querySelector('#monthlySalary')
+  const spouseSalary = document.querySelector('#spouseSalary')
+  const output = document.querySelector('#output')
+
+  const calculateIncome = () => {
+    output.innerHTML = (Number(monthlySalary.value) + Number(spouseSalary.value)) * 12
+  }
+
+  monthlySalary.addEventListener('input', calculateIncome)
+  spouseSalary.addEventListener('input', calculateIncome)
+})
+</script>
+
+<h1>Income calculator</h1>
+
+<p>
+  Monthly salary:<br />
+  <input type="number" id="monthlySalary" />
+</p>
+<p>
+  Spouse salary:<br />
+  <input type="number" id="spouseSalary" />
+</p>
+<p>
+  Annual income:<br />
+  <span id="output"></span>
+</p>
+
+</body>
+</html>

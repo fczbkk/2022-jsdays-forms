@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>checkbox input</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<script>
+window.addEventListener('load', () => {
+  const output = document.querySelector('#output')
+  const everything = document.querySelector('#everything')
+  const toppingCheckboxes = [...document.querySelectorAll('input[name="topping"]')]
+
+  const toppings = new Set()
+
+  const updateOutput = () => {
+    output.innerHTML = [...toppings].join(', ')
+  }
+
+  const updateToppings = (element) => {
+    if (element.checked) {
+      toppings.add(element.value)
+    } else {
+      toppings.delete(element.value)
+    }
+  }
+
+  const updateEverything = () => {
+    if (toppings.size === 0) {
+      everything.checked = false
+    }
+
+    if (toppings.size === toppingCheckboxes.length) {
+      everything.checked = false
+    }
+
+    everything.indeterminate = (toppings.size > 0 && toppings.size < toppingCheckboxes.length)
+  }
+
+  everything.addEventListener('change', () => {
+    toppingCheckboxes.forEach((element) => {
+      element.checked = everything.checked
+      updateToppings(element)
+    })
+    updateOutput()
+  })
+
+  toppingCheckboxes.forEach((element) => {
+    element.addEventListener('change', () => {
+      updateToppings(element)
+      updateEverything()
+      updateOutput()
+    })
+  })
+})
+</script>
+
+<h1>Pizza toppings</h1>
+
+<p>
+  <label>
+    <input type="checkbox" id="everything" />
+    everything
+  </label>
+</p>
+<p>
+  <label>
+    <input type="checkbox" name="topping" value="ham" />
+    ham
+  </label>
+</p>
+<p>
+  <label>
+    <input type="checkbox" name="topping" value="cheese" />
+    cheese
+  </label>
+</p>
+<p>
+  <label>
+    <input type="checkbox" name="topping" value="pineapple" />
+    pineapple
+  </label>
+</p>
+<p>
+  Selected toppings:
+  <span id="output"></span>
+</p>
+
+</body>
+</html>
